@@ -1,0 +1,15 @@
+package co.simplon.p25.api.service;
+
+//import java list
+
+import co.simplon.p25.api.entities.Country;
+
+
+public interface RestCountriesService {
+	
+	//arraLis..RestCountriesService
+//refaire 'arrayList
+}
+
+
+

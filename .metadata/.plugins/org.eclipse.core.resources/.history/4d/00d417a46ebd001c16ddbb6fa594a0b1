@@ -1,0 +1,22 @@
+package co.simplon.p25.api.service;
+
+import org.springframework.stereotype.Service;
+
+import co.simplon.p25.api.entities.Country;
+import co.simplon.p25.api.repositories.CountryRepository;
+
+
+@Service
+public class RestCountriesServiceImpl implements RestCountriesService{
+	private final CountryRepository repository;
+	public RestCountriesServiceImpl (CountryRepository repository) {
+		this.repository =repository; //on lui donne une valeur mais on l'assigne pas 
+	}
+	
+	//generer un constructeur --> source generer le constructeur using field 
+	
+//@Override	
+//public ArrayList <Country> getCountries (){
+	return null;
+}
+}
