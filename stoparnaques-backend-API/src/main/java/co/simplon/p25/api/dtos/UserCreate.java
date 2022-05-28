@@ -1,11 +1,38 @@
 package co.simplon.p25.api.dtos;
 
-public class UserCreate {
-	private String username;
-    private String password;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-    public UserCreate() {
-    }
+public class UserCreate {
+
+	private long id;
+
+	@NotEmpty
+	@Email
+	private String username;
+
+	@NotNull
+	@NotEmpty
+	@Size(min = 8, message = "Le mot de passe doit contenir au minimum 8 caractères, à savoir : au moins une lettre minuscule et une lettre majuscule, un caractère spécial et un chiffre")
+	private String password;
+
+	public UserCreate() {
+	}
+
+	public UserCreate(String username, String password) {
+		this.username = username;
+		this.password = password;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getUsername() {
 		return username;
@@ -25,7 +52,7 @@ public class UserCreate {
 
 	@Override
 	public String toString() {
-		return "UserCreate [username=" + username + ", password=" + password + "]";
+		return "UserCreate [id=" + id + ", username=" + username + ", password=" + password + "]";
 	}
 
 }

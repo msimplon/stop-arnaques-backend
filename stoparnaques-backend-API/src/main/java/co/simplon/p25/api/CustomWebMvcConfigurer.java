@@ -9,21 +9,20 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class CustomWebMvcConfigurer implements WebMvcConfigurer {
 
-    @Value("${restcountries.cors.allowed-origins}")
-    private String[] allowedOrigins;
+	@Value("${stoparnaques.cors.allowed-origins}")
+	private String[] allowedOrigins;
 
-    @Value("${restcountries.cors.allowed-methods}")
-    private String[] allowedMethods;
+	@Value("${stoparnaques.cors.allowed-methods}")
+	private String[] allowedMethods;
 
-    @Override
-    public void configurePathMatch(PathMatchConfigurer configurer) {
-    configurer.setUseTrailingSlashMatch(false);
-    }
+	@Override
+	public void configurePathMatch(PathMatchConfigurer configurer) {
+		configurer.setUseTrailingSlashMatch(false);
+	}
 
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-    registry.addMapping("/**").allowedOrigins(allowedOrigins).allowedMethods(allowedMethods);
-    }
+	@Override
+	public void addCorsMappings(CorsRegistry registry) {
+		registry.addMapping("/**").allowedOrigins(allowedOrigins).allowedMethods(allowedMethods);
+	}
 
 }
-
