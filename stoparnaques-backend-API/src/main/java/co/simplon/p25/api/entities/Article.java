@@ -29,6 +29,8 @@ public class Article {
 
 	@Column(name = "date_of_publication")
 	private LocalDate date;
+	
+	
 
 	@ManyToOne
 	@JoinColumn(name = "category_id")
@@ -74,7 +76,7 @@ public class Article {
 		this.date = date;
 
 	}
-
+	
 	public Category getCategory() {
 		return category;
 	}
@@ -82,6 +84,8 @@ public class Article {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+
+	
 
 	@Override
 	public String toString() {
