@@ -5,4 +5,4 @@
  * \i database.ddl.sql
  * \q
  */
-CREATE DATABASE stop-arnaques;
+CREATE DATABASE stoparnaques;

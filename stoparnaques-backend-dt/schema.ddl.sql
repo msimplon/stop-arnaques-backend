@@ -1,34 +1,31 @@
 /*
  * DDL = Data Definition Language
- * Command lines from 'teams-db' folder:
  * psql -h localhost -p 5432 -U postgres -d stoparnaques
  * \i schema.ddl.sql
  * \q
  */
 
-/*EN ATTENTE DE CONFIRMATION DE FRANK */
-/*CREATE TABLE category (  
-	id SERIAL PRIMARY KEY,  
-	zip_code varchar(10) UNIQUE NOT NULL,  
-	nom varchar(200) NOT NULL
+CREATE TABLE categories (  
+	id SERIAL PRIMARY KEY,
+	name varchar(200) UNIQUE NOT NULL
 );
 
-CREATE TABLE items (  
+CREATE TABLE articles (  
 	id SERIAL PRIMARY KEY,  
-	title varchar(200) NOT NULL,
-	subtitle varchar (200) NOT NULL,
-	description varchar(250) NOTE NULL,
-	date_of_publication varchar NOT NULL,
-	CONSTRAINT fk_categories_items_id
-    	FOREIGN KEY (categorie_id)
-    	REFERENCES categorie(id)
+	title varchar(200)  UNIQUE NOT NULL,
+	subtitle varchar (200)  NOT NULL,
+	description text NOT NULL,
+	date_of_publication date NOT NULL,
+	category_id integer NOT NULL,
+	CONSTRAINT fk_category_id
+    	FOREIGN KEY (category_id)
+    	REFERENCES categories(id)
 );
 
-CREATE TABLE users (  
+CREATE TABLE users (
 	id SERIAL PRIMARY KEY,   
 	username varchar(255) UNIQUE NOT NULL,
 	password varchar(60) NOT NULL
 );
-*/
 
 
