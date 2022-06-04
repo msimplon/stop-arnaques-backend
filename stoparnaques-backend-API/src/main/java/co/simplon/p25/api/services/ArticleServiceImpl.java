@@ -11,6 +11,7 @@ import co.simplon.p25.api.dtos.ArticleView;
 import co.simplon.p25.api.entities.Article;
 import co.simplon.p25.api.entities.Category;
 import co.simplon.p25.api.repositories.ArticleRepository;
+import co.simplon.p25.api.repositories.CategoryRepository;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {

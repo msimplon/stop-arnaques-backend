@@ -54,7 +54,7 @@ public class ArticleController {
 	 
 
 	 
-	 @GetMapping("/article-view")
+	 @GetMapping("/article-view/{id}")
 	    public ArticleView getArticleById(@PathVariable("id") Long id) {
 		return service.findProjectedById(id);
 	    }
@@ -62,7 +62,7 @@ public class ArticleController {
 	   
 
 	    @PutMapping("/{id}")
-	    public void updateArticle(@PathVariable Long id, @RequestBody ArticleUpdate article) {
+	    public void updateArticle(@PathVariable("id") Long id, @RequestBody ArticleUpdate article) {
 		service.updateArticleById(id, article);
 	    }
 	

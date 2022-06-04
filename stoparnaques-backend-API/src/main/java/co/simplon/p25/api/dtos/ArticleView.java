@@ -11,8 +11,6 @@ public interface ArticleView {
 	String getDescription();
 
 	LocalDate getDate();
-
-//	String getCategoryName();
 	
 	Long getId();
 
