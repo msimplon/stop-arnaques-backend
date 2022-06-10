@@ -20,51 +20,46 @@ import co.simplon.p25.api.services.ArticleService;
 
 @RestController
 @RequestMapping("/articles")
+
 public class ArticleController {
 
-	private final ArticleService service;
+    private final ArticleService service;
 
-	public ArticleController(ArticleService service) {
-		this.service = service;
+    public ArticleController(ArticleService service) {
+	this.service = service;
 
-	}
+    }
 
-	@GetMapping("/list-articles")
-	public List<ArticleView> getAllArticles() {
-		return service.getAllArticles();
+    @GetMapping("/list-articles")
+    public List<ArticleView> getAllArticles() {
+	return service.getAllArticles();
 
-	}
-	
-	@PostMapping 
+    }
+
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createArticle(@RequestBody ArticleCreate article) {
-		service.createArticle(article);
+	service.createArticle(article);
     }
-	
-	
-	 @DeleteMapping("/byId/{id}")
-	    public void deleteArticleById(@PathVariable("id") Long id) {
-		service.deleteArticleById(id);
-	    }
-	 
-	 @DeleteMapping("/byTitle/{title}")
-	    public void deleteArticleByTitle(@PathVariable("title") String title) {
-		service.deleteArticleByTitle(title);
-	    }
-	 
 
-	 
-	 @GetMapping("/article-view/{id}")
-	    public ArticleView getArticleById(@PathVariable("id") Long id) {
-		return service.findProjectedById(id);
-	    }
+    @DeleteMapping("/byId/{id}")
+    public void deleteArticleById(@PathVariable("id") Long id) {
+	service.deleteArticleById(id);
+    }
 
-	   
+    @DeleteMapping("/byTitle/{title}")
+    public void deleteArticleByTitle(@PathVariable("title") String title) {
+	service.deleteArticleByTitle(title);
+    }
 
-	    @PutMapping("/{id}")
-	    public void updateArticle(@PathVariable("id") Long id, @RequestBody ArticleUpdate article) {
-		service.updateArticleById(id, article);
-	    }
-	
-	
+    @GetMapping("/article-view/{id}")
+    public ArticleView getArticleById(@PathVariable("id") Long id) {
+	return service.findProjectedById(id);
+    }
+
+    @PutMapping("/{id}")
+    public void updateArticle(@PathVariable("id") Long id, @RequestBody ArticleUpdate article) {
+	service.updateArticleById(id, article);
+    }
+
 }

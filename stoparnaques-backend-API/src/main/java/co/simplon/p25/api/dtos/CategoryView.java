@@ -1,12 +1,8 @@
 package co.simplon.p25.api.dtos;
 
 public interface CategoryView {
-	
-	String  getName();
-	
-	Long getId();
+    Long getId();
 
-	CategoryView get();
-
+    String getName();
 
 }

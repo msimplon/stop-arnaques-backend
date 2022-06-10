@@ -4,14 +4,16 @@ import java.time.LocalDate;
 
 public interface ArticleView {
 
-	String getTitle();
+    String getTitle();
 
-	String getSubtitle();
+    String getSubTitle();
 
-	String getDescription();
+    String getDescription();
 
-	LocalDate getDate();
-	
-	Long getId();
+    LocalDate getDate();
+
+    Long getId();
+
+    Long getCategoryId();
 
 }
