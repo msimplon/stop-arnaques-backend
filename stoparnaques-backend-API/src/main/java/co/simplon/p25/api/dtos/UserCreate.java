@@ -1,21 +1,19 @@
 package co.simplon.p25.api.dtos;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 public class UserCreate {
 
 	private long id;
 
-	@NotEmpty
-	@Email
+	@NotBlank(message = "email_required")
+//	@UniqueEmail(message = "Cet email existe déjà")
+	@Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "email_format")
 	private String username;
 
-	@NotNull
-	@NotEmpty
-	@Size(min = 8, message = "Le mot de passe doit contenir au minimum 8 caractères, à savoir : au moins une lettre minuscule et une lettre majuscule, un caractère spécial et un chiffre")
+	@NotBlank(message = "password_required")
+	@Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")
 	private String password;
 
 	public UserCreate() {
@@ -51,8 +49,9 @@ public class UserCreate {
 	}
 
 	@Override
-	public String toString() {
-		return "UserCreate [id=" + id + ", username=" + username + ", password=" + password + "]";
-	}
+	   public String toString() {
+		return String.format("ProfileCreate [username=%s, password=%s]",
+			username, "[PROTECTED]");
+	    }
 
 }
