@@ -7,6 +7,7 @@ public class ArticleCreate {
     private String title;
     private String subTitle;
     private String description;
+    private String imageUrl;
     private LocalDate date;
     private Long categoryId;
 
@@ -37,6 +38,14 @@ public class ArticleCreate {
     public void setDescription(String description) {
 	this.description = description;
     }
+    
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
 
     public LocalDate getDate() {
 	return date;
@@ -53,4 +62,6 @@ public class ArticleCreate {
     public void setCategoryId(Long categoryId) {
 	this.categoryId = categoryId;
     }
+
+
 }

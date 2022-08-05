@@ -10,6 +10,8 @@ public class ArticleUpdate {
     private String subTitle;
 
     private String description;
+    
+    private String imageUrl;
 
     private LocalDate date;
         
@@ -44,6 +46,13 @@ public class ArticleUpdate {
 		this.description = description;
 	}
 
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}	
 	public LocalDate getDate() {
 		return date;
 	}

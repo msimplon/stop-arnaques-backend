@@ -26,6 +26,9 @@ public class Article {
 
     @Column(name = "description")
     private String description;
+    
+    @Column(name = "image_url")
+    private String imageUrl;
 
     @Column(name = "date_of_publication")
     private LocalDate date;
@@ -65,8 +68,16 @@ public class Article {
     public void setDescription(String description) {
 	this.description = description;
     }
+    
+    public String getImageUrl() {
+		return imageUrl;
+	}
 
-    public LocalDate getDate() {
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public LocalDate getDate() {
 	return date;
     }
 

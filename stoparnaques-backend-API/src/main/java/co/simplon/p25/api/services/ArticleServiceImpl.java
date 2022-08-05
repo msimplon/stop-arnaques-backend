@@ -38,6 +38,7 @@ public class ArticleServiceImpl implements ArticleService {
 	article.setTitle(inputs.getTitle());
 	article.setSubTitle(inputs.getSubTitle());
 	article.setDescription(inputs.getDescription());
+	article.setImageUrl(inputs.getImageUrl());
 	article.setDate(inputs.getDate());
 	Category category = categories.getById(inputs.getCategoryId());
 	article.setCategory(category);
@@ -51,6 +52,7 @@ public class ArticleServiceImpl implements ArticleService {
 	article.setTitle(inputs.getTitle());
 	article.setSubTitle(inputs.getSubTitle());
 	article.setDescription(inputs.getDescription());
+	article.setImageUrl(inputs.getImageUrl());
 	article.setDate(inputs.getDate());
 	Category category = categories.getById(inputs.getCategoryId());
 	article.setCategory(category);
