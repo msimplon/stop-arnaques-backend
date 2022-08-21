@@ -5,4 +5,4 @@
  * \i database.ddl.sql
  * \q
  */
-CREATE DATABASE stoparnaques;
+CREATE DATABASE stoparnaques WITH OWNER 'postgres' ENCODING 'UTF8';
