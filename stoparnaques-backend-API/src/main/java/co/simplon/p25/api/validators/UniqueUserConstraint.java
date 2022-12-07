@@ -8,10 +8,12 @@ import java.lang.annotation.Target;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
+import javax.validation.constraints.NotNull;
 
 @Constraint(validatedBy = UniqueUserValidator.class)
 @Retention(RUNTIME)
 @Target(FIELD)
+@NotNull
 public @interface UniqueUserConstraint {
     String message() default "User email already used for this Client";
 
