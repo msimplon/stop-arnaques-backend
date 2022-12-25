@@ -18,24 +18,24 @@ import co.simplon.p25.api.services.UserService;
 @RequestMapping("/users")
 public class UserController {
 
-	
-	private final UserService service;
+    private final UserService service;
 
-	public UserController(UserService service) {
-		this.service = service;
-	}
+    public UserController(UserService service) {
+	this.service = service;
+    }
 
-	@PostMapping
-	@ResponseStatus(HttpStatus.CREATED)
-	public void create(@RequestBody @Valid UserCreate inputs) {
-		service.create(inputs);
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public void create(
+	    @RequestBody @Valid UserCreate inputs) {
+	service.create(inputs);
 
-	}
+    }
 
-	@PostMapping("/sign-in")
+    @PostMapping("/sign-in")
 
-	public Jwt signIn(@RequestBody UserSignIn inputs) {
-		return service.signIn(inputs);
-	}
+    public Jwt signIn(@RequestBody UserSignIn inputs) {
+	return service.signIn(inputs);
+    }
 
 }

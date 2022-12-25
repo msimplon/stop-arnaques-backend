@@ -16,4 +16,6 @@ public interface ArticleView {
 
     Long getCategoryId();
 
+    // ajouter image
+
 }
