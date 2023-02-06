@@ -3,7 +3,7 @@ package co.simplon.p25.api.dtos;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
-import co.simplon.p25.api.validators.UniqueUserConstraint;
+import co.simplon.p25.api.exception.UniqueUserConstraint;
 
 
 public class UserCreate {

@@ -8,6 +8,8 @@ public interface ArticleView {
 
     String getSubTitle();
 
+    String getImageUrl();
+
     String getDescription();
 
     LocalDate getDate();
@@ -15,7 +17,5 @@ public interface ArticleView {
     Long getId();
 
     Long getCategoryId();
-
-    // ajouter image
 
 }

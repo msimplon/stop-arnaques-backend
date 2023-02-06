@@ -1,4 +1,4 @@
-package co.simplon.p25.api.exceptions;
+package co.simplon.p25.api.validators;
 
 import java.util.ArrayList;
 import java.util.List;

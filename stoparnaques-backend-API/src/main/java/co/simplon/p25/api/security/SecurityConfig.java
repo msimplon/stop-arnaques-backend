@@ -59,6 +59,30 @@ public class SecurityConfig
 			"/users/sign-in")
 		.permitAll()
 
+		.and().authorizeRequests()
+		.antMatchers(HttpMethod.PUT,
+			"/articles/{id}")
+		.permitAll()
+
+		.and().authorizeRequests()
+		.antMatchers(HttpMethod.POST, "/requests")
+		.permitAll()
+
+		.and().authorizeRequests()
+		.antMatchers(HttpMethod.GET,
+			"/requests/list-requests")
+		.permitAll()
+
+		.and().authorizeRequests()
+		.antMatchers(HttpMethod.GET,
+			"/requests/list-requests/{id}")
+		.permitAll()
+
+		.and().authorizeRequests()
+		.antMatchers(HttpMethod.DELETE,
+			"/requests/byId//{id}")
+		.permitAll()
+
 		.and().authorizeRequests().anyRequest()
 		.authenticated().and()
 		.oauth2ResourceServer().jwt();

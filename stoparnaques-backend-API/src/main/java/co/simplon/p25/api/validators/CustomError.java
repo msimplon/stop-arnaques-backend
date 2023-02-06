@@ -1,4 +1,4 @@
-package co.simplon.p25.api.exceptions;
+package co.simplon.p25.api.validators;
 
 public class CustomError {
 	   private String password;

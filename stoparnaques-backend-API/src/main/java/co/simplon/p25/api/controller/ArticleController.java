@@ -20,7 +20,6 @@ import co.simplon.p25.api.services.ArticleService;
 
 @RestController
 @RequestMapping("/articles")
-
 public class ArticleController {
 
     private final ArticleService service;

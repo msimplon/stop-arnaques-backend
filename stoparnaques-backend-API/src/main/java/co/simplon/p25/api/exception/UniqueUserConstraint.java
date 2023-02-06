@@ -1,4 +1,4 @@
-package co.simplon.p25.api.validators;
+package co.simplon.p25.api.exception;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;

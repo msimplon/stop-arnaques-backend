@@ -1,4 +1,4 @@
-package co.simplon.p25.api.validators;
+package co.simplon.p25.api.exception;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

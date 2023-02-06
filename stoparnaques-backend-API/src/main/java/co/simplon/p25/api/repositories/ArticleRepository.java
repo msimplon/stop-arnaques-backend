@@ -10,21 +10,17 @@ import co.simplon.p25.api.dtos.ArticleView;
 import co.simplon.p25.api.entities.Article;
 
 @Repository
-public interface ArticleRepository extends JpaRepository<Article, Long> {
+public interface ArticleRepository
+	extends JpaRepository<Article, Long> {
 //	
-	Optional<ArticleView> findProjectedById(Long id);
-//	 <T> List<T> findAllProjectedBy(Class<T> type);
+    Optional<ArticleView> findProjectedById(Long id);
 
-	List<ArticleView> findAllProjectedBy();
+    List<ArticleView> findAllProjectedBy();
 
-	void deleteByTitle(String title);
-	
-	
-	
+    void deleteByTitle(String title);
+
 //	void updateByTitle(String title);
 
 //	List<ArticleUpdate> findAllProjectedBy(Class<ArticleUpdate> class1);
 
-	
-	
 }
