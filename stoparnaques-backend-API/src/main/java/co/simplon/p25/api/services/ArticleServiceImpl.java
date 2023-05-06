@@ -14,13 +14,15 @@ import co.simplon.p25.api.repositories.ArticleRepository;
 import co.simplon.p25.api.repositories.CategoryRepository;
 
 @Service
+@Transactional(readOnly = true)
 public class ArticleServiceImpl implements ArticleService {
 
     private final ArticleRepository repo;
 
     private final CategoryRepository categories;
 
-    public ArticleServiceImpl(ArticleRepository repo, CategoryRepository categories) {
+    public ArticleServiceImpl(ArticleRepository repo,
+	    CategoryRepository categories) {
 	this.repo = repo;
 	this.categories = categories;
 
@@ -32,7 +34,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = false)
     public void createArticle(ArticleCreate inputs) {
 	Article article = new Article();
 	article.setTitle(inputs.getTitle());
@@ -40,21 +42,24 @@ public class ArticleServiceImpl implements ArticleService {
 	article.setDescription(inputs.getDescription());
 	article.setImageUrl(inputs.getImageUrl());
 	article.setDate(inputs.getDate());
-	Category category = categories.getById(inputs.getCategoryId());
+	Category category = categories
+		.getById(inputs.getCategoryId());
 	article.setCategory(category);
 	repo.save(article);
     }
 
     @Override
     @Transactional
-    public void updateArticleById(Long id, ArticleUpdate inputs) {
+    public void updateArticleById(Long id,
+	    ArticleUpdate inputs) {
 	Article article = repo.findById(id).get();
 	article.setTitle(inputs.getTitle());
 	article.setSubTitle(inputs.getSubTitle());
 	article.setDescription(inputs.getDescription());
 	article.setImageUrl(inputs.getImageUrl());
 	article.setDate(inputs.getDate());
-	Category category = categories.getById(inputs.getCategoryId());
+	Category category = categories
+		.getById(inputs.getCategoryId());
 	article.setCategory(category);
 	repo.save(article);
     }

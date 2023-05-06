@@ -68,23 +68,20 @@ CREATE TABLE conferences (
    
 );
 
---CREATE TABLE roles (
---	id SERIAL PRIMARY KEY,	
---	name varchar(20) UNIQUE NOT NULL
---);
+CREATE TABLE roles (
+	id SERIAL PRIMARY KEY,	
+	name varchar(20) UNIQUE NOT NULL
+);
 
 CREATE TABLE users (
 	id SERIAL PRIMARY KEY,   
 	username varchar(255) UNIQUE NOT NULL,
-	password varchar(60) NOT NULL
---	role_id INTEGER, 
---	CONSTRAINT fk_role_id
---    	FOREIGN KEY (role_id)
---    	REFERENCES roles(id)
+	password varchar(60) NOT NULL,
+	role_id INTEGER, 
+CONSTRAINT fk_role_id
+  	FOREIGN KEY (role_id)
+	REFERENCES roles(id)
 );
-
-
-
 
 
 

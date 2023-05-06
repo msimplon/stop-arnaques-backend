@@ -1,6 +1,6 @@
 /*
  * DML = Data Manipulation Language
- * psql -h localhost -p 5432 -U postgres -d stoparnaques
+ * pour se connecter a cette database saisir cette commande : psql -h localhost -p 5432 -U postgres -d stoparnaques
  * \i data.dml.sql
  * \q
  */
@@ -16,10 +16,6 @@
 -- CREER DES USERS ET LES RECUPERER EN BDD 
 
 -- SECUR CONFIG A VOIR 
-
-
--- problème avec table requests et litiges à régler 
-
 
 
 DELETE FROM categories;
@@ -103,10 +99,12 @@ INSERT INTO users (username, password)
 	VALUES
     ('user@mail.com', '$2a$12$vrT8/vYBdK5ze/vo6s7LXer5q0mBWQk3tJVsR0iLgEe4OIsdhuc1u' );
 	
-	
-	
-	/* créer l'utilisateur admin */
---INSERT INTO roles (name) values ('ROLE_ADMIN');
+	/* créer l'utilisateur admin = 1 seul role admin mais ajout de plusieurs roles dans un future proche*
+	 * mot de passe est différent du token, le token est un jeton unique pr un utilisateur qui lui permet...  */
+    
+INSERT INTO roles (name) 
+	values ('ROLE_ADMIN');
 
-	/* créer utilisateur admin test 
---INSERT INTO users (username, password, role_id) VALUES ('admin@domain.com', '$2a$12$e9uXaGxdqJvoymb3UyiWK.qbDbRms02bAPWb2C4EXh7mMHI87EvyS', (SELECT r.id FROM roles r WHERE r.name = 'ROLE_ADMIN'));
+	/* créer utilisateur admin test */
+	 
+INSERT INTO users (username, password, role_id) VALUES ('admin30@domain.com', '$2a$11$/vyCZOWfj./Guf8aOHpeM.hav5htEfXhbckQMWdjwsTuZfP2o6sn2', (SELECT r.id FROM roles r WHERE r.name = 'ROLE_ADMIN'));
