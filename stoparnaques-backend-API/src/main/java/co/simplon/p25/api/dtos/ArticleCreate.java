@@ -6,6 +6,7 @@ public class ArticleCreate {
 
     private String title;
     private String subTitle;
+    private String actor;
     private String description;
     private String imageUrl;
     private LocalDate date;
@@ -31,6 +32,14 @@ public class ArticleCreate {
 	this.subTitle = subTitle;
     }
 
+    public String getActor() {
+	return actor;
+    }
+
+    public void setActor(String actor) {
+	this.actor = actor;
+    }
+
     public String getDescription() {
 	return description;
     }
@@ -38,14 +47,14 @@ public class ArticleCreate {
     public void setDescription(String description) {
 	this.description = description;
     }
-    
-	public String getImageUrl() {
-		return imageUrl;
-	}
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
+    public String getImageUrl() {
+	return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+	this.imageUrl = imageUrl;
+    }
 
     public LocalDate getDate() {
 	return date;
@@ -62,6 +71,5 @@ public class ArticleCreate {
     public void setCategoryId(Long categoryId) {
 	this.categoryId = categoryId;
     }
-
 
 }

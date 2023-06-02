@@ -33,10 +33,11 @@ CREATE TABLE categories (
 CREATE TABLE articles (  
 	id SERIAL PRIMARY KEY,  
 	title varchar(200)  UNIQUE NOT NULL,
-	subtitle varchar (200)  NOT NULL,
+	subtitle varchar(200)  NOT NULL,
+	actor varchar(60) NOT NULL,
 	description text NOT NULL,
 	image_url VARCHAR(255) NOT NULL,
-	date_of_publication date NOT NULL,
+	date_of_publication date,
 	category_id integer NOT NULL,
 	CONSTRAINT fk_category_id
     	FOREIGN KEY (category_id)

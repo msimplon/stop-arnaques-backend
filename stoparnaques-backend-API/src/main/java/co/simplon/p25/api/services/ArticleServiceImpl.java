@@ -39,6 +39,7 @@ public class ArticleServiceImpl implements ArticleService {
 	Article article = new Article();
 	article.setTitle(inputs.getTitle());
 	article.setSubTitle(inputs.getSubTitle());
+	article.setActor(inputs.getActor());
 	article.setDescription(inputs.getDescription());
 	article.setImageUrl(inputs.getImageUrl());
 	article.setDate(inputs.getDate());
@@ -55,6 +56,7 @@ public class ArticleServiceImpl implements ArticleService {
 	Article article = repo.findById(id).get();
 	article.setTitle(inputs.getTitle());
 	article.setSubTitle(inputs.getSubTitle());
+	article.setActor(inputs.getActor());
 	article.setDescription(inputs.getDescription());
 	article.setImageUrl(inputs.getImageUrl());
 	article.setDate(inputs.getDate());

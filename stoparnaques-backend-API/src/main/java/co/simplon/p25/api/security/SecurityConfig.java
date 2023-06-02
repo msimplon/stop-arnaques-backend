@@ -54,7 +54,9 @@ public class SecurityConfig
 
 		.and().authorizeRequests()
 		.antMatchers(HttpMethod.POST, "/articles")
-		.hasRole("ADMIN").and().authorizeRequests()
+//		.hasRole("ADMIN").and().authorizeRequests()
+		.permitAll()
+
 		.and().authorizeRequests()
 		.antMatchers(HttpMethod.POST,
 			"/users/sign-in")
@@ -85,10 +87,16 @@ public class SecurityConfig
 		.permitAll()
 
 		.and().authorizeRequests()
+		.antMatchers(HttpMethod.DELETE,
+			"/articles/byId//{id}")
+		.permitAll()
+
+		.and().authorizeRequests()
 		.antMatchers(HttpMethod.GET, "/categories")
-		.permitAll().and().authorizeRequests()
-		.anyRequest().authenticated().and()
-		.oauth2ResourceServer().jwt();
+		.permitAll();
+//		.and().authorizeRequests()
+//		.anyRequest().authenticated().and()
+//		.oauth2ResourceServer().jwt();
 
     }
 

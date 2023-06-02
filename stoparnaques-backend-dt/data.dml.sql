@@ -31,7 +31,7 @@ DELETE FROM users;
 
 
 INSERT INTO categories (name)
-VALUES ('ActualitÃ©s'), ('Conseils');
+VALUES ('Actualités'), ('Conseils');
 
 --
 --INSERT INTO profiles (uuid, email)
@@ -67,15 +67,15 @@ INSERT INTO requests (description,created_at,litige_id)
 	('lorem ipsum blabla', '2022-05-21', (select l.id FROM litigations l where l.label = 'origine frauduleuse'));
 
 
-INSERT INTO articles (title, subtitle, description, image_url, date_of_publication, category_id) 
+INSERT INTO articles (title, subtitle, actor, description, image_url, date_of_publication, category_id) 
 	VALUES
-('Ecommerce','Tuto dÃ©scryptage fiabilitÃ© du site marchand','Lorem ipsum','assets/IMG/ampoule/conseils1.png','2022-05-19', (select c.id FROM categories c where c.name = 'ActualitÃ©s')),
-('Les rÃ©seaux sociaux','contrefacon','Lorem ipsum blabla','assets/IMG/ampoule/conseils1.png','2022-03-29', (select c.id FROM categories c where c.name = 'ActualitÃ©s')),
-('Influenceur et justice', 'Des influenceurs dans le collimateur de la justice!','Lorem ipsum balbla.','assets/IMG/ampoule/conseils1.png','2022-03-13', (select c.id FROM categories c where c.name = 'ActualitÃ©s')),
-('Nos conseils Ã  suivre', 'Nos 10 conseils', 'Lorem ipsum','assets/IMG/ampoule/conseils1.png','2022-01-13',(select c.id FROM categories c where c.name = 'Conseils')),
-('Notre lettre de rÃ©clamation', 'Lettre marchandise non conforme','Lorem ipsum balbla','assets/IMG/ampoule/conseils1.png','2022-03-13',(select c.id FROM categories c where c.name = 'Conseils')),
-('Sept ans de prison pour un ex-influenceur','Detournement de fonds publics', 'Lorem ipsum balbla', 'assets/IMG/ampoule/conseils1.png','2022-03-13',(select c.id FROM categories c where c.name = 'ActualitÃ©s')),
-('Obtenez répératation','Lettre non livraison','Lorem ipsum','assets/IMG/ampoule/conseils1.png','2022-10-13', (select c.id FROM categories c where c.name = 'Conseils'));
+('Ecommerce','Tuto descriptage fiabilité du site marchand','manal','Lorem ipsum','assets/IMG/ampoule/conseils1.png','2022-05-19', (select c.id FROM categories c where c.name = 'Actualités')),
+('Les réseaux sociaux','contrefacon','thomas','Lorem ipsum blabla','assets/IMG/ampoule/conseils1.png','2022-03-29', (select c.id FROM categories c where c.name = 'Actualités')),
+('Influenceur et justice', 'Des influenceurs dans le collimateur de la justice!','eva','Lorem ipsum balbla.','assets/IMG/ampoule/conseils1.png','2022-03-13', (select c.id FROM categories c where c.name = 'Actualités')),
+('Nos conseils à  suivre', 'Nos 10 conseils','Massy','Lorem ipsum','assets/IMG/ampoule/conseils1.png','2022-01-13',(select c.id FROM categories c where c.name = 'Conseils')),
+('Notre lettre de reclamation', 'Lettre marchandise non conforme','laurine','Lorem ipsum balbla','assets/IMG/ampoule/conseils1.png','2022-03-13',(select c.id FROM categories c where c.name = 'Conseils')),
+('Sept ans de prison pour un ex-influenceur','Detournement de fonds publics', 'lisa','Lorem ipsum balbla', 'assets/IMG/ampoule/conseils1.png','2022-03-13',(select c.id FROM categories c where c.name = 'Actualités')),
+('Obtenez répératation','Lettre non livraison','maroua','Lorem ipsum','assets/IMG/ampoule/conseils1.png','2022-10-13', (select c.id FROM categories c where c.name = 'Conseils'));
 
 
 INSERT INTO conferences (file_name, cover)

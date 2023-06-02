@@ -8,6 +8,8 @@ public class ArticleUpdate {
 
     private String subTitle;
 
+    private String actor;
+
     private String description;
 
     private String imageUrl;
@@ -34,6 +36,14 @@ public class ArticleUpdate {
 
     public void setSubTitle(String subTitle) {
 	this.subTitle = subTitle;
+    }
+
+    public String getActor() {
+	return actor;
+    }
+
+    public void setActor(String actor) {
+	this.actor = actor;
     }
 
     public String getDescription() {
@@ -67,7 +77,5 @@ public class ArticleUpdate {
     public void setCategoryId(Long categoryId) {
 	this.categoryId = categoryId;
     }
-
-    // manque la category_ids
 
 }

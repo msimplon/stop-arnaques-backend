@@ -8,9 +8,11 @@ public interface ArticleView {
 
     String getSubTitle();
 
-    String getImageUrl();
+    String getActor();
 
     String getDescription();
+
+    String getImageUrl();
 
     LocalDate getDate();
 

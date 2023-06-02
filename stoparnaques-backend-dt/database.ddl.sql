@@ -10,3 +10,5 @@
 --Création de la base de donnée
 
 CREATE DATABASE stoparnaques WITH OWNER 'postgres' ENCODING 'UTF8';
+
+--CREATE DATABASE stick WITH OWNER 'postgres' ENCODING 'UTF8';--

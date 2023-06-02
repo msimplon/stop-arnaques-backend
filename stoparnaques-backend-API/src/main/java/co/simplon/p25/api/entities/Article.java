@@ -24,9 +24,12 @@ public class Article {
     @Column(name = "subtitle")
     private String subTitle;
 
+    @Column(name = "actor")
+    private String actor;
+
     @Column(name = "description")
     private String description;
-    
+
     @Column(name = "image_url")
     private String imageUrl;
 
@@ -61,6 +64,14 @@ public class Article {
 	this.subTitle = subTitle;
     }
 
+    public String getActor() {
+	return actor;
+    }
+
+    public void setActor(String actor) {
+	this.actor = actor;
+    }
+
     public String getDescription() {
 	return description;
     }
@@ -68,16 +79,16 @@ public class Article {
     public void setDescription(String description) {
 	this.description = description;
     }
-    
+
     public String getImageUrl() {
-		return imageUrl;
-	}
+	return imageUrl;
+    }
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
+    public void setImageUrl(String imageUrl) {
+	this.imageUrl = imageUrl;
+    }
 
-	public LocalDate getDate() {
+    public LocalDate getDate() {
 	return date;
     }
 
@@ -96,8 +107,11 @@ public class Article {
 
     @Override
     public String toString() {
-	return "Article [id=" + id + ", title=" + title + ", subtitle=" + subTitle + ", description=" + description
-		+ ", date=" + date + ", category=" + category + "]";
+	return "{id=" + id + ", title=" + title
+		+ ", subTitle=" + subTitle + ", actor="
+		+ actor + ", description=" + description
+		+ ", imageUrl=" + imageUrl + ", date="
+		+ date + ", category=" + category + "}";
     }
 
 }
