@@ -2,21 +2,33 @@ package co.simplon.p25.api.dtos;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.NotNull;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import co.simplon.p25.api.validators.ImageSize;
+import co.simplon.p25.api.validators.ImageType;
+
 public class ArticleUpdate {
 
+    @NotNull
     private String title;
-
+    @NotNull
     private String subTitle;
-
-    private String actor;
-
+    @NotNull
+    private String editor;
+    @NotNull
     private String description;
-
-    private String imageUrl;
-
+    @ImageType
+    @ImageSize(maxValue = 2097152L)
+    @NotNull
+    private MultipartFile imageUrl;
+    @NotNull
     private LocalDate date;
-
+    @NotNull
     private Long categoryId;
+    @NotNull
+    private String introduction;
 
     public ArticleUpdate() {
 
@@ -38,12 +50,12 @@ public class ArticleUpdate {
 	this.subTitle = subTitle;
     }
 
-    public String getActor() {
-	return actor;
+    public String getEditor() {
+	return editor;
     }
 
-    public void setActor(String actor) {
-	this.actor = actor;
+    public void setEditor(String editor) {
+	this.editor = editor;
     }
 
     public String getDescription() {
@@ -54,11 +66,11 @@ public class ArticleUpdate {
 	this.description = description;
     }
 
-    public String getImageUrl() {
+    public MultipartFile getImageUrl() {
 	return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
+    public void setImageUrl(MultipartFile imageUrl) {
 	this.imageUrl = imageUrl;
     }
 
@@ -76,6 +88,24 @@ public class ArticleUpdate {
 
     public void setCategoryId(Long categoryId) {
 	this.categoryId = categoryId;
+    }
+
+    public String getIntroduction() {
+	return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+	this.introduction = introduction;
+    }
+
+    @Override
+    public String toString() {
+	return "{title=" + title + ", subTitle=" + subTitle
+		+ ", editor=" + editor + ", description="
+		+ description + ", imageUrl=" + imageUrl
+		+ ", date=" + date + ", categoryId="
+		+ categoryId + ", introduction="
+		+ introduction + "}";
     }
 
 }

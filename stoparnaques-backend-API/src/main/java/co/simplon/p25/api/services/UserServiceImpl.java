@@ -36,6 +36,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public void create(UserCreate inputs) {
 	User user = new User();
+	user.setFirstName(inputs.getFirstName());
+	user.setLastName(inputs.getLastName());
 	user.setUsername(inputs.getUsername());
 	String encoded = encoder
 		.encode(inputs.getPassword());

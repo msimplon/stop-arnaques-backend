@@ -3,6 +3,7 @@ package co.simplon.p25.api.exception;
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
@@ -13,6 +14,7 @@ import javax.validation.constraints.NotNull;
 @Constraint(validatedBy = UniqueUserValidator.class)
 @Retention(RUNTIME)
 @Target(FIELD)
+@Documented
 @NotNull
 public @interface UniqueUserConstraint {
     String message() default "User email already used for this Client";
@@ -31,7 +33,7 @@ public @interface UniqueUserConstraint {
 //public @interface UniqueEmail { = tu créés une interface qui s'appelle UniqueEmail
 //String message() default "email_exists"; = une fonction par défault contenant "email_exists"
 //Class<?>[] groups() default {} = une classe groups par défault sans type mais donnant un tableau
-//Class<? extends Payload>[] payload() default {} = une classe s'appelant payload contentant un tableau de type inconnu étendu avec la classe Payload (elle rajoute ce qui se trouve dans la classe Payload
+//Class<? extends Payload>[] payload() default {} = une classe s'appelant payload contentant un tableau de type inconnu étendu avec la classe Payload (elle rajoute ce qui se trouve dans la classe Payload, ces annotation sont obligatoires sinon ne marche pas 
 //} = fin de l'interface
 //En gros, une classe va faire appel a cette classe au moment de vérifier l'email
 //Elle va aussi integrer payload (qui vérifie si t'as un token d'identification valide) . P-e pour le changement d'email quand tu es déjà connecté.

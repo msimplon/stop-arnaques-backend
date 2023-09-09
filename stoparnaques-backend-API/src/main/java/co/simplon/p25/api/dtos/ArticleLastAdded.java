@@ -3,7 +3,7 @@ package co.simplon.p25.api.dtos;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public interface ArticleView {
+public interface ArticleLastAdded {
 
     String getTitle();
 

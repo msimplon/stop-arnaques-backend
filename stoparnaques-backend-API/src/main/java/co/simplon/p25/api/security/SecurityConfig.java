@@ -55,6 +55,9 @@ public class SecurityConfig
 		.and().authorizeRequests()
 		.antMatchers(HttpMethod.POST, "/articles")
 //		.hasRole("ADMIN").and().authorizeRequests()
+		.permitAll().and().authorizeRequests()
+		.antMatchers(HttpMethod.GET,
+			"/article-view/{id}")
 		.permitAll()
 
 		.and().authorizeRequests()
@@ -63,7 +66,7 @@ public class SecurityConfig
 		.permitAll()
 
 		.and().authorizeRequests()
-		.antMatchers(HttpMethod.PUT,
+		.antMatchers(HttpMethod.PATCH,
 			"/articles/{id}")
 		.permitAll()
 
@@ -74,6 +77,16 @@ public class SecurityConfig
 		.and().authorizeRequests()
 		.antMatchers(HttpMethod.GET,
 			"/requests/list-requests")
+		.permitAll()
+
+		.and().authorizeRequests()
+		.antMatchers(HttpMethod.GET,
+			"/requests/list-requests")
+		.permitAll()
+
+		.and().authorizeRequests()
+		.antMatchers(HttpMethod.GET,
+			"/articles/articleLastAdded")
 		.permitAll()
 
 		.and().authorizeRequests()

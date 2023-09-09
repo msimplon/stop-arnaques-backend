@@ -1,22 +1,18 @@
 package co.simplon.p25.api.entities;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "articles")
-public class Article {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Article extends AbstractEntity {
 
     @Column(name = "title")
     private String title;
@@ -24,11 +20,14 @@ public class Article {
     @Column(name = "subtitle")
     private String subTitle;
 
-    @Column(name = "actor")
-    private String actor;
+    @Column(name = "editor")
+    private String editor;
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "introduction")
+    private String introduction;
 
     @Column(name = "image_url")
     private String imageUrl;
@@ -40,12 +39,10 @@ public class Article {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    private LocalDateTime createdAt;
+
     public Article() {
 
-    }
-
-    public Long getId() {
-	return id;
     }
 
     public String getTitle() {
@@ -64,12 +61,12 @@ public class Article {
 	this.subTitle = subTitle;
     }
 
-    public String getActor() {
-	return actor;
+    public String getEditor() {
+	return editor;
     }
 
-    public void setActor(String actor) {
-	this.actor = actor;
+    public void setEditor(String editor) {
+	this.editor = editor;
     }
 
     public String getDescription() {
@@ -105,13 +102,36 @@ public class Article {
 	this.category = category;
     }
 
+    public LocalDateTime getCreatedAt() {
+	return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+	this.createdAt = createdAt;
+    }
+
+    public String getIntroduction() {
+	return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+	this.introduction = introduction;
+    }
+
+    @PrePersist
+    private void createdAt() {
+	setCreatedAt(LocalDateTime.now());
+    }
+
     @Override
     public String toString() {
-	return "{id=" + id + ", title=" + title
-		+ ", subTitle=" + subTitle + ", actor="
-		+ actor + ", description=" + description
-		+ ", imageUrl=" + imageUrl + ", date="
-		+ date + ", category=" + category + "}";
+	return "{title=" + title + ", subTitle=" + subTitle
+		+ ", editor=" + editor + ", description="
+		+ description + ", introduction="
+		+ introduction + ", imageUrl=" + imageUrl
+		+ ", date=" + date + ", category="
+		+ category + ", createdAt=" + createdAt
+		+ "}";
     }
 
 }
