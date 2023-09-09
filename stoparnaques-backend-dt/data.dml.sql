@@ -1,6 +1,7 @@
 /*
  * DML = Data Manipulation Language
  * pour se connecter a cette database saisir cette commande : psql -h localhost -p 5432 -U postgres -d stoparnaques
+ *  se connecter à la base : c\ profiles_database
  * \i data.dml.sql
  * \q
  */
@@ -67,15 +68,15 @@ INSERT INTO requests (description,created_at,litige_id)
 	('lorem ipsum blabla', '2022-05-21', (select l.id FROM litigations l where l.label = 'origine frauduleuse'));
 
 
-INSERT INTO articles (title, subtitle, actor, description, image_url, date_of_publication, category_id) 
+INSERT INTO articles (title, subtitle, editor, description, introduction, image_url, date_of_publication,created_at, category_id) 
 	VALUES
-('Ecommerce','Tuto descriptage fiabilité du site marchand','manal','Lorem ipsum','assets/IMG/ampoule/conseils1.png','2022-05-19', (select c.id FROM categories c where c.name = 'Actualités')),
-('Les réseaux sociaux','contrefacon','thomas','Lorem ipsum blabla','assets/IMG/ampoule/conseils1.png','2022-03-29', (select c.id FROM categories c where c.name = 'Actualités')),
-('Influenceur et justice', 'Des influenceurs dans le collimateur de la justice!','eva','Lorem ipsum balbla.','assets/IMG/ampoule/conseils1.png','2022-03-13', (select c.id FROM categories c where c.name = 'Actualités')),
-('Nos conseils à  suivre', 'Nos 10 conseils','Massy','Lorem ipsum','assets/IMG/ampoule/conseils1.png','2022-01-13',(select c.id FROM categories c where c.name = 'Conseils')),
-('Notre lettre de reclamation', 'Lettre marchandise non conforme','laurine','Lorem ipsum balbla','assets/IMG/ampoule/conseils1.png','2022-03-13',(select c.id FROM categories c where c.name = 'Conseils')),
-('Sept ans de prison pour un ex-influenceur','Detournement de fonds publics', 'lisa','Lorem ipsum balbla', 'assets/IMG/ampoule/conseils1.png','2022-03-13',(select c.id FROM categories c where c.name = 'Actualités')),
-('Obtenez répératation','Lettre non livraison','maroua','Lorem ipsum','assets/IMG/ampoule/conseils1.png','2022-10-13', (select c.id FROM categories c where c.name = 'Conseils'));
+('Ecommerce','Tuto descriptage fiabilité du site marchand','manal','Lorem ipsum','Lorem ipsuddm','assets/IMG/ampoule/conseils1.png','2022-05-19', now(),(select c.id FROM categories c where c.name = 'Actualités')),
+('Les réseaux sociaux','contrefacon','thomas','Lorem ipsum blabla', 'Lorem ipsuddm','assets/IMG/ampoule/conseils1.png','2022-03-29', now(),(select c.id FROM categories c where c.name = 'Actualités')),
+('Influenceur et justice', 'Des influenceurs dans le collimateur de la justice!','eva','Lorem ipsum balbla.', 'Lorem ipsuddm','assets/IMG/ampoule/conseils1.png','2022-03-13', now(),(select c.id FROM categories c where c.name = 'Actualités')),
+('Nos conseils à  suivre', 'Nos 10 conseils','Massy','Lorem ipsum','Lorem ipsuddm','assets/IMG/ampoule/conseils1.png','2022-01-13', now(),(select c.id FROM categories c where c.name = 'Conseils')),
+('Notre lettre de reclamation', 'Lettre marchandise non conforme','laurine','Lorem ipsum balbla','Lorem ipsuddm','assets/IMG/ampoule/conseils1.png','2022-03-13', now(),(select c.id FROM categories c where c.name = 'Conseils')),
+('Sept ans de prison pour un ex-influenceur','Detournement de fonds publics', 'lisa','Lorem ipsum balbla', 'assets/IMG/ampoule/conseils1.png','2022-03-13', now(),(select c.id FROM categories c where c.name = 'Actualités')),
+('Obtenez répératation','Lettre non livraison','maroua','Lorem ipsum','assets/IMG/ampoule/conseils1.png','2022-10-13',now(),(select c.id FROM categories c where c.name = 'Conseils'));
 
 
 INSERT INTO conferences (file_name, cover)
@@ -95,9 +96,9 @@ INSERT INTO progress_status (status)
 	('traitée');
 	
 	
-INSERT INTO users (username, password)
+INSERT INTO users (first_name, last_name,username, password)
 	VALUES
-    ('user@mail.com', '$2a$12$vrT8/vYBdK5ze/vo6s7LXer5q0mBWQk3tJVsR0iLgEe4OIsdhuc1u' );
+    ('manal','benallal','user@mail.com', '$2a$12$vrT8/vYBdK5ze/vo6s7LXer5q0mBWQk3tJVsR0iLgEe4OIsdhuc1u' );
 	
 	/* créer l'utilisateur admin = 1 seul role admin mais ajout de plusieurs roles dans un future proche*
 	 * mot de passe est différent du token, le token est un jeton unique pr un utilisateur qui lui permet...  */

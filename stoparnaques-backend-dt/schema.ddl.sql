@@ -31,12 +31,14 @@ CREATE TABLE categories (
 );
 
 CREATE TABLE articles (  
-	id SERIAL PRIMARY KEY,  
-	title varchar(200)  UNIQUE NOT NULL,
+	id SERIAL PRIMARY KEY,  --c'est la PK, id technique 
+	title varchar(200)  UNIQUE NOT NULL, --NN et unique mais ca coute en performances, répétion des RG dans les couches de l'app
 	subtitle varchar(200)  NOT NULL,
-	actor varchar(60) NOT NULL,
+	editor varchar(60) NOT NULL,
 	description text NOT NULL,
+	introduction text NOT NULL,
 	image_url VARCHAR(255) NOT NULL,
+	created_at TIMESTAMP NOT NULL,
 	date_of_publication date,
 	category_id integer NOT NULL,
 	CONSTRAINT fk_category_id
@@ -75,7 +77,9 @@ CREATE TABLE roles (
 );
 
 CREATE TABLE users (
-	id SERIAL PRIMARY KEY,   
+	id SERIAL PRIMARY KEY,
+	first_name VARCHAR(300) NOT NULL,
+	last_name VARCHAR(300) NOT NULL,
 	username varchar(255) UNIQUE NOT NULL,
 	password varchar(60) NOT NULL,
 	role_id INTEGER, 
