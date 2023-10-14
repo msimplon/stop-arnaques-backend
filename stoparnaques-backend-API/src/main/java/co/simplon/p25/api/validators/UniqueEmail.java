@@ -1,5 +1,6 @@
 package co.simplon.p25.api.validators;
 
+import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -9,14 +10,11 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-@Constraint(validatedBy = EmailValueDifferentValidator.class)
-public @interface EmailValueDifferent {
-    String message() default "from/reply to email and contact email must be different";
-
-    String field();
-
-    String fieldMatch();
+@Target(ElementType.FIELD)
+@Documented
+@Constraint(validatedBy = UniqueEmailValidator.class)
+public @interface UniqueEmail {
+    String message() default "This email already exists";
 
     Class<?>[] groups() default {};
 

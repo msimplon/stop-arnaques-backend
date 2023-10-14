@@ -9,24 +9,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.simplon.p25.api.dtos.SendEmailDto;
-import co.simplon.p25.api.services.EmailService;
+import co.simplon.p25.api.dtos.CreateContactRoleDto;
+import co.simplon.p25.api.services.ContactRoleService;
 
 @RestController
-@RequestMapping("/send-mail")
-public class MailController {
+@RequestMapping("/contact-roles")
+public class ContactRoleController {
 
-    private final EmailService service;
+    private final ContactRoleService service;
 
-    public MailController(EmailService service) {
+    public ContactRoleController(
+	    ContactRoleService service) {
 	this.service = service;
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void sendSimpleMail(
-	    @Valid @RequestBody SendEmailDto inputs) {
-	this.service.sendSimpleMail(inputs);
+    public void create(
+	    @Valid @RequestBody CreateContactRoleDto inputs) {
+	service.create(inputs);
     }
 
 }

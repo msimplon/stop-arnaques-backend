@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.simplon.p25.api.dtos.SendEmailDto;
-import co.simplon.p25.api.services.EmailService;
+import co.simplon.p25.api.dtos.CreateCustomerDto;
+import co.simplon.p25.api.services.CustomerService;
 
 @RestController
-@RequestMapping("/send-mail")
-public class MailController {
+@RequestMapping("/customers")
+public class CustomerController {
 
-    private final EmailService service;
+    private final CustomerService service;
 
-    public MailController(EmailService service) {
+    public CustomerController(CustomerService service) {
 	this.service = service;
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void sendSimpleMail(
-	    @Valid @RequestBody SendEmailDto inputs) {
-	this.service.sendSimpleMail(inputs);
+    public void create(
+	    @Valid @RequestBody CreateCustomerDto inputs) {
+	service.create(inputs);
     }
 
 }
