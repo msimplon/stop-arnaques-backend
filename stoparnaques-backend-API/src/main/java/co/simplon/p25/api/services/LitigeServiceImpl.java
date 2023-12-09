@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import org.springframework.stereotype.Service;
 
-import co.simplon.p25.api.dtos.LitigeView;
+import co.simplon.p25.api.dtos.Request.LitigeView;
 import co.simplon.p25.api.repositories.LitigeRepository;
 
 @Service

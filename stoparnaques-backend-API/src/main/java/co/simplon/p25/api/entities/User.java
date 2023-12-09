@@ -1,5 +1,7 @@
 package co.simplon.p25.api.entities;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -82,6 +84,23 @@ public class User extends AbstractEntity {
 
     public void setRole(Role role) {
 	this.role = role;
+    }
+
+    @Override
+    public int hashCode() {
+	return Objects.hash(username);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj) {
+	    return true;
+	}
+	if (!(obj instanceof User)) {
+	    return false;
+	}
+	User other = (User) obj;
+	return Objects.equals(username, other.username);
     }
 
     @Override

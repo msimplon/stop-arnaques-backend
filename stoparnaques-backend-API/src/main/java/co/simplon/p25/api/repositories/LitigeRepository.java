@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import co.simplon.p25.api.dtos.LitigeView;
+import co.simplon.p25.api.dtos.Request.LitigeView;
 import co.simplon.p25.api.entities.Litige;
 
 public interface LitigeRepository

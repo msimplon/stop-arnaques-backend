@@ -6,23 +6,16 @@
  */
 
 
---DROP TABLE IF EXISTS lawyers;
-
+DROP TABLE IF EXISTS lawyers;
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS articles;
 DROP TABLE IF EXISTS litigations;
 DROP TABLE IF EXISTS requests;
 DROP TABLE IF EXISTS conferences;
---DROP TABLE IF EXISTS roles;
+DROP TABLE IF EXISTS roles;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS progress_status;
-
---DROP TABLE IF EXISTS profiles;
-
- --script de création de tables
-
-
--- créer table users voir moha 
+DROP TABLE IF EXISTS profiles;
 
 
 CREATE TABLE categories (  
@@ -31,8 +24,8 @@ CREATE TABLE categories (
 );
 
 CREATE TABLE articles (  
-	id SERIAL PRIMARY KEY,  --c'est la PK, id technique 
-	title varchar(200)  UNIQUE NOT NULL, --NN et unique mais ca coute en performances, répétion des RG dans les couches de l'app
+	id SERIAL PRIMARY KEY,
+	title varchar(200)  UNIQUE NOT NULL,
 	subtitle varchar(200)  NOT NULL,
 	editor varchar(60) NOT NULL,
 	description text NOT NULL,
@@ -88,26 +81,24 @@ CONSTRAINT fk_role_id
 	REFERENCES roles(id)
 );
 
+CREATE TABLE profiles (
+	id SERIAL PRIMARY KEY,
+    uuid UUID UNIQUE NOT NULL,
+	email VARCHAR(255) UNIQUE NOT NULL
+    first_name VARCHAR(30),
+    last_name VARCHAR(50)
+);
 
 
---CREATE TABLE profiles (
---	id SERIAL PRIMARY KEY,
---    uuid UUID UNIQUE NOT NULL,
---	email VARCHAR(255) UNIQUE NOT NULL
---    first_name VARCHAR(30),
---    last_name VARCHAR(50)
---);
---
---
---CREATE TABLE lawyers (  
---	id SERIAL PRIMARY KEY,
---	lawyer_name VARCHAR(50) UNIQUE NOT NULL,
---	available BOOLEAN NOT NULL,
---    	profile_id INTEGER
---    	CONSTRAINT fk_lawyers_profile 
---    		FOREIGN KEY (profile_id)
---    		REFERENCES profiles(id)
---);
+CREATE TABLE lawyers (  
+	id SERIAL PRIMARY KEY,
+	lawyer_name VARCHAR(50) UNIQUE NOT NULL,
+	available BOOLEAN NOT NULL,
+    	profile_id INTEGER
+    	CONSTRAINT fk_lawyers_profile 
+    		FOREIGN KEY (profile_id)
+    		REFERENCES profiles(id)
+);
 
 
 CREATE TABLE progress_status (  
@@ -116,10 +107,13 @@ CREATE TABLE progress_status (
 );
 
 
+CREATE TABLE email_templates(
+	id SERIAL,
+	template_identifier VARCHAR(20) UNIQUE NOT NULL,
+	template_subject VARCHAR(200) NOT NULL,
+	template_body VARCHAR(10000) NOT NULL
+);
 
 
-
-
---Ajout des contraintes de clefs étrangères
 
 

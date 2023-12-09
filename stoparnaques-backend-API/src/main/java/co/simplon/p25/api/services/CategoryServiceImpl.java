@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import co.simplon.p25.api.dtos.CategoryView;
+import co.simplon.p25.api.dtos.Articles.CategoryView;
 import co.simplon.p25.api.repositories.CategoryRepository;
 
 @Service

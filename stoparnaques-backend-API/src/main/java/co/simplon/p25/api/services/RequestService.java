@@ -2,8 +2,8 @@ package co.simplon.p25.api.services;
 
 import java.util.Collection;
 
-import co.simplon.p25.api.dtos.RequestCreateDto;
-import co.simplon.p25.api.dtos.RequestView;
+import co.simplon.p25.api.dtos.Request.RequestCreateDto;
+import co.simplon.p25.api.dtos.Request.RequestView;
 
 public interface RequestService {
 

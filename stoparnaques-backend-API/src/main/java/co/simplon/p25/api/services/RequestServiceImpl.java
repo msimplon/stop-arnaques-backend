@@ -5,8 +5,8 @@ import java.util.Collection;
 
 import org.springframework.stereotype.Service;
 
-import co.simplon.p25.api.dtos.RequestCreateDto;
-import co.simplon.p25.api.dtos.RequestView;
+import co.simplon.p25.api.dtos.Request.RequestCreateDto;
+import co.simplon.p25.api.dtos.Request.RequestView;
 import co.simplon.p25.api.entities.Litige;
 import co.simplon.p25.api.entities.Request;
 import co.simplon.p25.api.repositories.LitigeRepository;

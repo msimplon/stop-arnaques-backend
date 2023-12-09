@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import co.simplon.p25.api.dtos.RequestView;
+import co.simplon.p25.api.dtos.Request.RequestView;
 import co.simplon.p25.api.entities.Request;
 
 public interface RequestRepository
