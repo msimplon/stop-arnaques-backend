@@ -39,6 +39,18 @@ CREATE TABLE articles (
     	REFERENCES categories(id)
 );
 
+CREATE TABLE users (
+	id SERIAL PRIMARY KEY,
+	first_name VARCHAR(300) NOT NULL,
+	last_name VARCHAR(300) NOT NULL,
+	username varchar(255) UNIQUE NOT NULL,
+	password varchar(60) NOT NULL,
+	role_id integer NOT NULL, 
+CONSTRAINT fk_role_id
+  	FOREIGN KEY (role_id)
+	REFERENCES roles(id)
+);
+
 
 CREATE TABLE litigations (    
 	id SERIAL PRIMARY KEY,
@@ -65,8 +77,8 @@ CREATE TABLE conferences (
 );
 
 CREATE TABLE roles (
-	id SERIAL PRIMARY KEY,	
-	name varchar(20) UNIQUE NOT NULL
+	id SERIAL PRIMARY KEY,
+	name varchar(200) UNIQUE NOT NULL
 );
 
 CREATE TABLE users (
@@ -75,7 +87,7 @@ CREATE TABLE users (
 	last_name VARCHAR(300) NOT NULL,
 	username varchar(255) UNIQUE NOT NULL,
 	password varchar(60) NOT NULL,
-	role_id INTEGER, 
+	role_id integer, 
 CONSTRAINT fk_role_id
   	FOREIGN KEY (role_id)
 	REFERENCES roles(id)

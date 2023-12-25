@@ -95,4 +95,4 @@ INSERT INTO roles (name)
 
 	/* créer utilisateur admin test */
 	 
-INSERT INTO users (first_name, last_name, username, password, role_id) VALUES ('manal', 'elazouar', 'admin30@domain.com', '$2a$11$/vyCZOWfj./Guf8aOHpeM.hav5htEfXhbckQMWdjwsTuZfP2o6sn2', (SELECT r.id FROM roles r WHERE r.name = 'ROLE_ADMIN'));
+INSERT INTO users (first_name, last_name, username, password, role_id) VALUES ('manal','benallal','admin30@domain.com', '$2a$11$/vyCZOWfj./Guf8aOHpeM.hav5htEfXhbckQMWdjwsTuZfP2o6sn2', (SELECT r.id FROM roles r WHERE r.name = 'ROLE_ADMIN'));
