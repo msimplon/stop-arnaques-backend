@@ -13,7 +13,7 @@ final class ValidationError {
      * @throws NullPointerException if {@code code} is {@code null}
      */
     ValidationError(String code) {
-	Objects.requireNonNull(code, "code cannot be null");
+	Objects.requireNonNull(code, " cannot be null");
 	this.code = code;
     }
 

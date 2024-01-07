@@ -21,6 +21,11 @@ public class Role extends AbstractEntity {
     public Role() {
     }
 
+    @Override
+    public Long getId() {
+	return id;
+    }
+
     public String getName() {
 	return name;
     }

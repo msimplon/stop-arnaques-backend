@@ -2,10 +2,10 @@ package co.simplon.p25.api.services;
 
 import java.util.List;
 
-import co.simplon.p25.api.dtos.Articles.ArticleCreate;
-import co.simplon.p25.api.dtos.Articles.ArticleLastAdded;
-import co.simplon.p25.api.dtos.Articles.ArticleUpdate;
-import co.simplon.p25.api.dtos.Articles.ArticleView;
+import co.simplon.p25.api.dtos.ArticleCreate;
+import co.simplon.p25.api.dtos.ArticleLastAdded;
+import co.simplon.p25.api.dtos.ArticleUpdate;
+import co.simplon.p25.api.dtos.ArticleView;
 
 public interface ArticleService {
 

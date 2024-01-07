@@ -50,11 +50,9 @@ public class SecurityConfig
 		.and().authorizeRequests()
 		.antMatchers(HttpMethod.GET,
 			"/articles/list-articles")
-		.permitAll()
-
-		.and().authorizeRequests()
+		.hasRole("user").and().authorizeRequests()
+//		.permitAll()
 		.antMatchers(HttpMethod.POST, "/articles")
-//		.hasRole("ADMIN").and().authorizeRequests()
 		.permitAll().and().authorizeRequests()
 		.antMatchers(HttpMethod.GET,
 			"/article-view/{id}")

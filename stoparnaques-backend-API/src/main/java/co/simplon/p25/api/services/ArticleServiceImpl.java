@@ -15,10 +15,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import co.simplon.p25.api.dtos.Articles.ArticleCreate;
-import co.simplon.p25.api.dtos.Articles.ArticleLastAdded;
-import co.simplon.p25.api.dtos.Articles.ArticleUpdate;
-import co.simplon.p25.api.dtos.Articles.ArticleView;
+import co.simplon.p25.api.dtos.ArticleCreate;
+import co.simplon.p25.api.dtos.ArticleLastAdded;
+import co.simplon.p25.api.dtos.ArticleUpdate;
+import co.simplon.p25.api.dtos.ArticleView;
 import co.simplon.p25.api.entities.Article;
 import co.simplon.p25.api.entities.Category;
 import co.simplon.p25.api.repositories.ArticleRepository;
