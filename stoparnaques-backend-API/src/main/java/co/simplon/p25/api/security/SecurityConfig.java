@@ -7,9 +7,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
@@ -17,12 +16,12 @@ import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
+import org.springframework.security.web.server.SecurityWebFilterChain;
 
 import com.auth0.jwt.algorithms.Algorithm;
 
 @Configuration
-public class SecurityConfig
-	extends WebSecurityConfigurerAdapter {
+public class SecurityConfig {
 
     @Value("${stoparnaques.security.jwt.issuer}")
     private String issuer;
@@ -36,9 +35,9 @@ public class SecurityConfig
     @Value("${stoparnaques.security.jwt.secret}")
     private String secret;
 
-    @Override
-    protected void configure(HttpSecurity http)
-	    throws Exception {
+    @Bean
+    public SecurityWebFilterChain springSecurityFilterChain(
+	    ServerHttpSecurity http) {
 	http.cors().and().csrf().disable().logout()
 		.disable().sessionManagement()
 		.sessionCreationPolicy(

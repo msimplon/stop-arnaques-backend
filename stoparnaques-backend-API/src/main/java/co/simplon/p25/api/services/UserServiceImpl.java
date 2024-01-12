@@ -2,11 +2,10 @@ package co.simplon.p25.api.services;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import co.simplon.p25.api.dtos.UserCreate;
 import co.simplon.p25.api.dtos.UserSignIn;
@@ -54,16 +53,15 @@ public class UserServiceImpl implements UserService {
 		.orElseThrow(
 			() -> new BadCredentialsException(
 				String.format(
-					"no user found with username '%s'",
-					username)));
+					"Échec de l'authentification. Veuillez vérifier vos informations d'identification (nom d'utilisateur et mot de passe) et réessayer.")));
+
 	String password = inputs.getPassword();
 	if (!encoder.matches(password,
 		user.getPassword())) {
 	    throw new BadCredentialsException(String.format(
-		    "password does not match for username '%s'",
+		    "Échec de l'authentification. Le mot de passe fourni est incorrect avec l'adresse email suivante: '%s'",
 		    username));
 	}
-
 	Role role = user.getRole();
 	List<String> roles = null;
 	if (role != null) {

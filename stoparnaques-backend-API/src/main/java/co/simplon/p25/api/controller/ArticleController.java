@@ -2,8 +2,6 @@ package co.simplon.p25.api.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +19,7 @@ import co.simplon.p25.api.dtos.ArticleLastAdded;
 import co.simplon.p25.api.dtos.ArticleUpdate;
 import co.simplon.p25.api.dtos.ArticleView;
 import co.simplon.p25.api.services.ArticleService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/articles")

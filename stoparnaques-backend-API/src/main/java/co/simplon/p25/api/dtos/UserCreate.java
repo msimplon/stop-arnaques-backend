@@ -1,10 +1,9 @@
 package co.simplon.p25.api.dtos;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-
 import co.simplon.p25.api.validators.UniqueUserConstraint;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 public class UserCreate {
 
@@ -23,8 +22,6 @@ public class UserCreate {
     @NotBlank(message = "password_required")
     @Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$", message = "password_format")
     private String password;
-
-    private Long roleId;
 
     public UserCreate() {
     }
@@ -66,21 +63,11 @@ public class UserCreate {
 	this.password = password;
     }
 
-    public Long getRoleId() {
-	return roleId;
-    }
-
-    public void setRoleId(Long roleId) {
-	this.roleId = roleId;
-    }
-
     @Override
     public String toString() {
-	return String.format(
-		"ProfileCreate [username=%s, password=%s]",
-		username, "[PROTECTED]");
+	return "{firstName=" + firstName + ", lastName="
+		+ lastName + ", username=" + username
+		+ ", password=" + password + "}";
     }
 
-//	return "UserResetPasswordDto [email=" + email
-//			+ ", oldPassword=[PROTECTED], newPassword=[PROTECTED]]";
 }

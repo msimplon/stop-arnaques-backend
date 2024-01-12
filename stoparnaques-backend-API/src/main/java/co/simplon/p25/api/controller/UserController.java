@@ -1,7 +1,5 @@
 package co.simplon.p25.api.controller;
 
-import javax.validation.Valid;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +11,7 @@ import co.simplon.p25.api.dtos.UserCreate;
 import co.simplon.p25.api.dtos.UserSignIn;
 import co.simplon.p25.api.security.Jwt;
 import co.simplon.p25.api.services.UserService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/users")
