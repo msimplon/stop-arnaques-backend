@@ -1,9 +1,9 @@
 package co.simplon.p25.api.validators;
 
-import org.springframework.web.multipart.MultipartFile;
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 
-import jakarta.validation.ConstraintValidator;
-import jakarta.validation.ConstraintValidatorContext;
+import org.springframework.web.multipart.MultipartFile;
 
 public class ImageSizeValidator implements
 	ConstraintValidator<ImageSize, MultipartFile> {

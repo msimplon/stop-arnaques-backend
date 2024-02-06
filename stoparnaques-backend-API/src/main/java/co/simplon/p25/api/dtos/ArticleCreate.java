@@ -2,11 +2,12 @@ package co.simplon.p25.api.dtos;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import co.simplon.p25.api.validators.ImageSize;
 import co.simplon.p25.api.validators.ImageType;
-import jakarta.validation.constraints.NotNull;
 
 public class ArticleCreate {
 

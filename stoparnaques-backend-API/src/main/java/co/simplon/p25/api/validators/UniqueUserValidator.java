@@ -1,8 +1,9 @@
 package co.simplon.p25.api.validators;
 
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
 import co.simplon.p25.api.repositories.UserRepository;
-import jakarta.validation.ConstraintValidator;
-import jakarta.validation.ConstraintValidatorContext;
 
 public class UniqueUserValidator implements
 	ConstraintValidator<UniqueUserConstraint, String> {

@@ -7,8 +7,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
@@ -16,48 +17,38 @@ import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
-import org.springframework.security.web.server.SecurityWebFilterChain;
 
 import com.auth0.jwt.algorithms.Algorithm;
 
 @Configuration
-public class SecurityConfig {
-
+public class SecurityConfig
+	extends WebSecurityConfigurerAdapter {
     @Value("${stoparnaques.security.jwt.issuer}")
     private String issuer;
-
     @Value("${stoparnaques.security.jwt.expiration}")
     private long expiration;
-
     @Value("${stoparnaques.security.jwt.zoneId}")
     private String zoneId;
-
     @Value("${stoparnaques.security.jwt.secret}")
     private String secret;
 
-    @Bean
-    public SecurityWebFilterChain springSecurityFilterChain(
-	    ServerHttpSecurity http) {
+    @Override
+    protected void configure(HttpSecurity http)
+	    throws Exception {
 	http.cors().and().csrf().disable().logout()
 		.disable().sessionManagement()
 		.sessionCreationPolicy(
 			SessionCreationPolicy.STATELESS)
 		.and().authorizeRequests()
 		.antMatchers(HttpMethod.POST, "/users")
-		.permitAll()
-
-		.and().authorizeRequests()
-		.antMatchers(HttpMethod.GET,
-			"/articles/list-articles")
-		.hasRole("user").and().authorizeRequests()
-//		.permitAll()
-		.antMatchers(HttpMethod.POST, "/articles")
 		.permitAll().and().authorizeRequests()
 		.antMatchers(HttpMethod.GET,
-			"/article-view/{id}")
-		.permitAll()
+			"/articles/list-articles")
+		.permitAll().and().authorizeRequests()
+		.antMatchers(HttpMethod.POST, "/articles")
+//		.hasRole("ADMIN").and().authorizeRequests()
+		.permitAll().and().authorizeRequests()
 
-		.and().authorizeRequests()
 		.antMatchers(HttpMethod.POST,
 			"/users/sign-in")
 		.permitAll()
@@ -69,19 +60,10 @@ public class SecurityConfig {
 
 		.and().authorizeRequests()
 		.antMatchers(HttpMethod.POST, "/requests")
-		.permitAll()
-
-		.and().authorizeRequests()
+		.permitAll().and().authorizeRequests()
 		.antMatchers(HttpMethod.GET,
-			"/requests/list-requests")
-		.permitAll()
-
-		.and().authorizeRequests()
-		.antMatchers(HttpMethod.GET,
-			"/requests/list-requests")
-		.permitAll()
-
-		.and().authorizeRequests()
+			"/articles/{id}/detail")
+		.permitAll().and().authorizeRequests()
 		.antMatchers(HttpMethod.GET,
 			"/articles/articleLastAdded")
 		.permitAll()
@@ -89,25 +71,15 @@ public class SecurityConfig {
 		.and().authorizeRequests()
 		.antMatchers(HttpMethod.GET,
 			"/requests/list-requests/{id}")
-		.permitAll()
-
-		.and().authorizeRequests()
+		.permitAll().and().authorizeRequests()
 		.antMatchers(HttpMethod.DELETE,
 			"/requests/byId//{id}")
-		.permitAll()
-
-		.and().authorizeRequests()
-		.antMatchers(HttpMethod.DELETE,
-			"/articles/byId//{id}")
-		.permitAll()
-
-		.and().authorizeRequests()
+		.permitAll().and().authorizeRequests()
 		.antMatchers(HttpMethod.GET, "/categories")
 		.permitAll();
 //		.and().authorizeRequests()
 //		.anyRequest().authenticated().and()
 //		.oauth2ResourceServer().jwt();
-
     }
 
     @Bean

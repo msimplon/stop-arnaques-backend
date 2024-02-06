@@ -1,0 +1,47 @@
+{"properties": [
+  {
+    "name": "stoparnaques.cors.allowedOrigins",
+    "type": "java.lang.String",
+    "description": "A description for 'stoparnaques.cors.allowedOrigins'"
+  },
+  {
+    "name": "stoparnaques-api.cors.allowedOrigins",
+    "type": "java.lang.String",
+    "description": "A description for 'stoparnaques-api.cors.allowedOrigins'"
+  },
+  {
+    "name": "stoparnaques-api.cors.allowedOrigins",
+    "type": "java.lang.String",
+    "description": "A description for 'stoparnaques-api.cors.allowedOrigins'"
+  },
+  {
+    "name": "stoparnaques-api.uploads.location",
+    "type": "java.lang.String",
+    "description": "A description for 'stoparnaques-api.uploads.location'"
+  },
+  {
+    "name": "stoparnaques.cors.allowed-methods",
+    "type": "java.lang.String",
+    "description": "A description for 'stoparnaques.cors.allowed-methods'"
+  },
+  {
+    "name": "stoparnaques.security.jwt.issuer",
+    "type": "java.lang.String",
+    "description": "A description for 'stoparnaques.security.jwt.issuer'"
+  },
+  {
+    "name": "stoparnaques-api.cors.allowedOrigins",
+    "type": "java.lang.String",
+    "description": "A description for 'stoparnaques-api.cors.allowedOrigins'"
+  },
+  {
+    "name": "stoparnaques.security.jwt.expiration",
+    "type": "java.lang.String",
+    "description": "A description for 'stoparnaques.security.jwt.expiration'"
+  },
+  {
+    "name": "stoparnaques.security.jwt.zoneId",
+    "type": "java.lang.String",
+    "description": "A description for 'stoparnaques.security.jwt.zoneId'"
+  }
+]}

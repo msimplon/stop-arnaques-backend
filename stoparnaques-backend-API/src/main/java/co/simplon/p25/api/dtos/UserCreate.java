@@ -1,9 +1,10 @@
 package co.simplon.p25.api.dtos;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 import co.simplon.p25.api.validators.UniqueUserConstraint;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 
 public class UserCreate {
 

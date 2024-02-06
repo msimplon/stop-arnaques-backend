@@ -7,9 +7,10 @@ import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
-import jakarta.validation.Constraint;
-import jakarta.validation.Payload;
-import jakarta.validation.constraints.NotNull;
+import javax.validation.Constraint;
+import javax.validation.constraints.NotNull;
+
+import com.auth0.jwt.interfaces.Payload;
 
 @Constraint(validatedBy = UniqueUserValidator.class)
 @Retention(RUNTIME)

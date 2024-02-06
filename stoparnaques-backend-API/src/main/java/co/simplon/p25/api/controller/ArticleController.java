@@ -2,7 +2,10 @@ package co.simplon.p25.api.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,8 +22,8 @@ import co.simplon.p25.api.dtos.ArticleLastAdded;
 import co.simplon.p25.api.dtos.ArticleUpdate;
 import co.simplon.p25.api.dtos.ArticleView;
 import co.simplon.p25.api.services.ArticleService;
-import jakarta.validation.Valid;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/articles")
 public class ArticleController {
@@ -51,7 +54,7 @@ public class ArticleController {
 	service.deleteArticleById(id);
     }
 
-    @GetMapping("/article-view/{id}")
+    @GetMapping("/{id}/detail")
     public ArticleView getArticleById(
 	    @PathVariable("id") Long id) {
 	return service.findProjectedById(id);
@@ -62,6 +65,7 @@ public class ArticleController {
 	return service.getTop4LastAdded();
     }
 
+    @CrossOrigin
     @PatchMapping("/{id}")
     public void updateArticle(
 	    @ModelAttribute @Valid @PathVariable("id") Long id,
