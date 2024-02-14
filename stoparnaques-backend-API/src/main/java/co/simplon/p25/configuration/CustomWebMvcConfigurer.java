@@ -14,7 +14,7 @@ public class CustomWebMvcConfigurer
 
     @Value("${stoparnaques.cors.allowed-methods}")
     private String[] allowedMethods;
-//
+
 //    @Override
 //    public void configurePathMatch(
 //	    PathMatchConfigurer configurer) {

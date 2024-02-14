@@ -2,6 +2,14 @@ package co.simplon.p25.configuration;
 
 import java.util.Map;
 
+//
+//encapsuler les erreurs qui peuvent survenir lors de l'utilisation de RestTemplate dans une application Spring. 
+//Elle est conçue pour contenir des informations sur l'erreur
+//, telles que le code de statut HTTP de la réponse et le corps de la réponse associée.
+//Par exemple, lorsqu'une requête HTTP échoue dans votre application Spring,
+//vous pouvez lancer une instance de RestTemplateException en spécifiant le code de statut HTTP de la réponse
+//et le corps de la réponse.
+
 import org.springframework.http.HttpStatus;
 
 @SuppressWarnings("serial")
