@@ -48,7 +48,7 @@ public class SecurityConfig implements WebMvcConfigurer {
 			"/categories", "/users",
 			"/users/sign-in", "/roles",
 			"/articles/articleLastAdded",
-			"/articles",
+			"/articles", "/send-mail",
 			"/articles/{id}/detail",
 			"/articles/{id}")
 		.permitAll().anyRequest().authenticated()

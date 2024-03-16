@@ -10,7 +10,7 @@ public interface ArticleView {
 
     String getEditor();
 
-//    String getDescription();
+    String getDescription();
 
     String getIntroduction();
 
