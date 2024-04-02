@@ -79,16 +79,25 @@ public class User extends AbstractEntity {
 	return Objects.hash(username);
     }
 
+    // username est notre discriminant est cest ca qui vient donner l'identité
+    // logique de mon entité pourtan tpas dans le monde relationnelle et donc meme
+    // dans les traiteents on a besoin d'identifié un discriminant fonctionelle
+
+    /**
+     * on a equals donc la meme signature this == obj : necesssairement le meme
+     * type, la meme référence et donc utile pour els performances
+     */// si pas le meme type ca sert a rien de continuer ici ca verifie si lestypes
+       // sont compatible sinon return false
+       // ici on sait que is_a account , ici on a un cast ca permet à la compilation ca
+       // permet de voir objt comme un user et donc on stocke objt comme un user.
+
     @Override
     public boolean equals(Object obj) {
 	if (this == obj) {
 	    return true;
 	}
-	if (!(obj instanceof User)) {
-	    return false;
-	}
-	User other = (User) obj;
-	return Objects.equals(username, other.username);
+	return obj instanceof User other
+		&& Objects.equals(username, other.username);
     }
 
     @Override

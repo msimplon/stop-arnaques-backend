@@ -5,7 +5,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import co.simplon.p25.api.dtos.SendMailDto;
-import co.simplon.p25.api.security.EmailService;
 
 @Service
 public class EmailServiceImpl implements EmailService {

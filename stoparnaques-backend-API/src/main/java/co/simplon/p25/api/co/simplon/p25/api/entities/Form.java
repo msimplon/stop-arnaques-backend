@@ -10,8 +10,8 @@ import jakarta.persistence.Table;
 @Table(name = "forms")
 public class Form extends AbstractEntity {
 
-    @Column(name = "object")
-    private String object;
+    @Column(name = "subject")
+    private String subject;
 
     @Column(name = "email")
     private String email;
@@ -33,12 +33,12 @@ public class Form extends AbstractEntity {
 
     }
 
-    public String getObject() {
-	return object;
+    public String getSubject() {
+	return subject;
     }
 
-    public void setObject(String object) {
-	this.object = object;
+    public void setSubject(String subject) {
+	this.subject = subject;
     }
 
     public String getEmail() {
@@ -83,10 +83,11 @@ public class Form extends AbstractEntity {
 
     @Override
     public String toString() {
-	return "{object=" + object + ", email=" + email
+	return "{subject=" + subject + ", email=" + email
 		+ ", incidentNumber=" + incidentNumber
 		+ ", attachement=" + attachement
-		+ ", dispute=" + dispute + "}";
+		+ ", details=" + details + ", dispute="
+		+ dispute + "}";
     }
 
 }

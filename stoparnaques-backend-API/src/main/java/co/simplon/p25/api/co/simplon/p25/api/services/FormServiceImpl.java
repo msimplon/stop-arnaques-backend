@@ -47,7 +47,7 @@ public class FormServiceImpl implements FormService {
     @Transactional(readOnly = false)
     public void createForm(FormCreate inputs) {
 	Form form = new Form();
-	form.setObject(inputs.getObject());
+	form.setSubject(inputs.getSubject());
 	form.setEmail(inputs.getEmail());
 	form.setIncidentNumber(inputs.getIncidentNumber());
 	form.setDetails(inputs.getDetails());

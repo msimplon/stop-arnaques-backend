@@ -2,6 +2,12 @@ package co.simplon.p25.api.exception;
 
 import java.util.Objects;
 
+/**
+ * 
+ * @Depreciated
+ *
+ */
+
 final class ValidationError {
 
     private final String code;

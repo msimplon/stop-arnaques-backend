@@ -20,8 +20,7 @@ public class SendMailDto {
     private String subject;
 
     @NotBlank
-    @Pattern(regexp = "[a-zA-Z0-9\\s]+")
-    @Size(min = 1, max = 1000)
+    @Size(min = 1, max = 1000000)
     private String body;
 
     public String getPrimaryRecipient() {

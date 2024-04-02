@@ -103,4 +103,14 @@ public class ArticleCreate {
 	this.introduction = introduction;
     }
 
+    @Override
+    public String toString() {
+	return "{title=" + title + ", subTitle=" + subTitle
+		+ ", editor=" + editor + ", description="
+		+ description + ", imageUrl=" + imageUrl
+		+ ", date=" + date + ", categoryId="
+		+ categoryId + ", introduction="
+		+ introduction + "}";
+    }
+
 }

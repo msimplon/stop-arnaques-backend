@@ -14,16 +14,15 @@ import java.util.Map;
  */
 final class ValidationErrors {
 
-    private final Collection<ValidationError> globalErrors;
+    private final Collection<ValidationError> globalErrors = new ArrayList<>();
 
-    private final Map<String, Collection<ValidationError>> fieldErrors;
+    private final Map<String, Collection<ValidationError>> fieldErrors = new HashMap<>();
 
     /**
      * Creates a new {@code ValidationErrors}.
      */
     ValidationErrors() {
-	globalErrors = new ArrayList<>();
-	fieldErrors = new HashMap<>();
+
     }
 
     /**
@@ -44,6 +43,8 @@ final class ValidationErrors {
      * @param code an error code
      * @throws NullPointerException if either {@code name} or {@code code} is
      *                              {@code null}
+     * 
+     *                              voir ce bout de code et le comprendre
      */
     void addFieldError(String name, String code) {
 	Collection<ValidationError> errors = init(name);
@@ -73,7 +74,8 @@ final class ValidationErrors {
     /**
      * Returns an immutable view of the field errors.
      *
-     * @return an immutable view of the field errors
+     * @return an immutable view of the field errors car pas bien de faire le return
+     *         d'un json
      */
     public Map<String, Collection<ValidationError>> getFieldErrors() {
 	return Collections.unmodifiableMap(fieldErrors);
@@ -85,4 +87,5 @@ final class ValidationErrors {
 		"{globalErrors=%s, fieldErrors=%s}",
 		globalErrors.size(), fieldErrors.size());
     }
+
 }

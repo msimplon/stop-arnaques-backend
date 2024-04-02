@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.simplon.p25.api.dtos.SendMailDto;
-import co.simplon.p25.api.security.EmailService;
+import co.simplon.p25.api.services.EmailService;
 import jakarta.validation.Valid;
 
 @RestController

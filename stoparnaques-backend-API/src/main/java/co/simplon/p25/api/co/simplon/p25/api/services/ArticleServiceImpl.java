@@ -24,6 +24,8 @@ import co.simplon.p25.api.entities.Category;
 import co.simplon.p25.api.repositories.ArticleRepository;
 import co.simplon.p25.api.repositories.CategoryRepository;
 
+// dans cette class changer le artcileview en optional voir code frank
+
 @Service
 @Transactional(readOnly = true)
 public class ArticleServiceImpl implements ArticleService {
@@ -68,6 +70,7 @@ public class ArticleServiceImpl implements ArticleService {
 	article.setDate(inputs.getDate());
 	LocalDateTime createdAt = LocalDateTime.now();
 	article.setCreatedAt(createdAt);
+	@SuppressWarnings("deprecation")
 	Category category = categories
 		.getById(inputs.getCategoryId());
 	article.setCategory(category);
@@ -94,6 +97,7 @@ public class ArticleServiceImpl implements ArticleService {
 	    store(file, imageName);
 	}
 	article.setDate(inputs.getDate());
+	@SuppressWarnings("deprecation")
 	Category category = categories
 		.getById(inputs.getCategoryId());
 	article.setCategory(category);
@@ -120,7 +124,6 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public ArticleView findProjectedById(Long id) {
-
 	return repo.findProjectedById(id).get();
     }
 

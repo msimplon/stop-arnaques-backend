@@ -9,7 +9,7 @@ import jakarta.validation.constraints.NotNull;
 public class FormCreate {
 
     @NotNull
-    private String object;
+    private String subject;
     @NotNull
     private String email;
     @NotNull
@@ -30,12 +30,12 @@ public class FormCreate {
 
     }
 
-    public String getObject() {
-	return object;
+    public String getSubject() {
+	return subject;
     }
 
-    public void setObject(String object) {
-	this.object = object;
+    public void setSubject(String subject) {
+	this.subject = subject;
     }
 
     public String getEmail() {

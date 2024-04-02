@@ -1,4 +1,4 @@
-package co.simplon.p25.api.security;
+package co.simplon.p25.api.services;
 
 import co.simplon.p25.api.dtos.SendMailDto;
 

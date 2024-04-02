@@ -19,6 +19,10 @@ public interface ArticleService {
 
     ArticleView findProjectedById(Long id);
 
+//    Optional<ArticleView> findProjectedById(Long id);
+
     List<ArticleLastAdded> getTop4LastAdded();
 
 }
+
+//OPTINAL return qlq chose d'optienne '
