@@ -22,6 +22,4 @@ public interface ArticleRepository
 
     List<ArticleLastAdded> findTop4ByOrderByCreatedAtDesc();
 
-    void deleteByTitle(String title);
-
 }

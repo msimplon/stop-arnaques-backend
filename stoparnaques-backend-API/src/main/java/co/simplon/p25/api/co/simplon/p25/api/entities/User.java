@@ -74,6 +74,7 @@ public class User extends AbstractEntity {
 	this.role = role;
     }
 
+// REDEFENIR hschode et equals car bonne pratique et etre implémnté sur la meme donnée que equals 
     @Override
     public int hashCode() {
 	return Objects.hash(username);

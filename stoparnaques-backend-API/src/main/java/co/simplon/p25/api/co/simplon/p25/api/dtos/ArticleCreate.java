@@ -112,5 +112,7 @@ public class ArticleCreate {
 		+ categoryId + ", introduction="
 		+ introduction + "}";
     }
+    
+
 
 }

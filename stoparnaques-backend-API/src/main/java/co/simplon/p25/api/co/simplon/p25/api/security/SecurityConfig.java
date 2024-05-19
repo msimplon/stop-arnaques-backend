@@ -6,6 +6,8 @@ import javax.crypto.spec.SecretKeySpec;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -40,21 +42,41 @@ public class SecurityConfig implements WebMvcConfigurer {
     @Bean
     public SecurityFilterChain configure(HttpSecurity http)
 	    throws Exception {
-	http.cors().and().csrf().disable()
-		.authorizeRequests()
-		.requestMatchers("/articles/list-articles",
-			"articles/byId/{id}", "/disputes",
-			"/forms", "forms/list-forms",
-			"/categories", "/users",
-			"/users/sign-in", "/roles",
-			"/articles/articleLastAdded",
-			"/articles", "/send-mail",
-			"/articles/{id}/detail",
-			"/articles/{id}")
-		.permitAll().anyRequest().authenticated()
-//		.hasRole("ADMIN").and().authorizeRequests()
-		.and().oauth2ResourceServer().jwt();
+	http.cors(Customizer.withDefaults())
+		.csrf(csrf -> csrf.disable())
+		.authorizeHttpRequests((authz) -> {
+		    authz.requestMatchers(HttpMethod.POST,
+			    "/users", "/users/sign-in",
+			    "/articles").permitAll()
+			    .requestMatchers(HttpMethod.GET,
+				    "/articles/articleLastAdded",
+				    "/categories",
+				    "/articles/{id}/detail",
+				    "/roles", "/disputes",
+				    "/articles/list-articles",
+				    "forms/list-forms")
+			    .permitAll()
+			    .requestMatchers(
+				    HttpMethod.POST,
+				    "articles/byId/{id}",
+				    "/forms", "/send-mail")
+			    .hasAuthority("admin")
+			    .requestMatchers(
+				    HttpMethod.DELETE,
+				    "articles/byId/{id}")
+			    .hasAuthority("admin")
+			    .requestMatchers(
+				    HttpMethod.PATCH,
+				    "articles/byId/{id}")
+			    .hasAuthority("admin")
+			    .anyRequest().authenticated();
+		}
+
+		).oauth2ResourceServer((oauth2) -> oauth2
+			.jwt(Customizer.withDefaults()));
+	;
 	return http.build();
+
     }
 
     @Bean

@@ -31,13 +31,6 @@ public class ArticleController {
 
     public ArticleController(ArticleService service) {
 	this.service = service;
-
-    }
-
-    @GetMapping("/list-articles")
-    public List<ArticleView> getAllArticles() {
-	return service.getAllArticles();
-
     }
 
     @PostMapping
@@ -45,6 +38,13 @@ public class ArticleController {
     public void createArticle(
 	    @RequestBody @ModelAttribute @Valid ArticleCreate article) {
 	service.createArticle(article);
+    }
+
+
+    @GetMapping("/list-articles")
+    public List<ArticleView> getAllArticles() {
+	return service.getAllArticles();
+
     }
 
     @DeleteMapping("/byId/{id}")
