@@ -47,29 +47,34 @@ public class SecurityConfig implements WebMvcConfigurer {
 		.authorizeHttpRequests((authz) -> {
 		    authz.requestMatchers(HttpMethod.POST,
 			    "/users", "/users/sign-in",
-			    "/articles").permitAll()
+			    "/articles", "/send-mail")
+			    .permitAll()
 			    .requestMatchers(HttpMethod.GET,
 				    "/articles/articleLastAdded",
 				    "/categories",
 				    "/articles/{id}/detail",
 				    "/roles", "/disputes",
 				    "/articles/list-articles",
-				    "forms/list-forms")
+				    "forms/list-forms",
+				    "/send-mail")
 			    .permitAll()
 			    .requestMatchers(
 				    HttpMethod.POST,
-				    "articles/byId/{id}",
-				    "/forms", "/send-mail")
-			    .hasAuthority("admin")
+				    "/forms")
+			    .permitAll()
+//			    .hasAuthority("admin")
 			    .requestMatchers(
 				    HttpMethod.DELETE,
 				    "articles/byId/{id}")
-			    .hasAuthority("admin")
+			    .permitAll()
+//			    .hasAuthority("admin")
 			    .requestMatchers(
 				    HttpMethod.PATCH,
-				    "articles/byId/{id}")
-			    .hasAuthority("admin")
-			    .anyRequest().authenticated();
+				    "articles/{id}")
+//			    .hasAuthority("admin")
+			    .permitAll();
+//			    .anyRequest()
+//			    .authenticated();
 		}
 
 		).oauth2ResourceServer((oauth2) -> oauth2
