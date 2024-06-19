@@ -1,10 +1,3 @@
-/*
- * DDL = Data Definition Language
- * psql -h localhost -p 5432 -U postgres -d stoparnaques
- * \i schema.ddl.sql
- * \q
- */
-
 DROP TABLE IF EXISTS articles;
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS users;
@@ -45,7 +38,7 @@ CREATE TABLE users (
 	id SERIAL,
 	first_name VARCHAR(300) NOT NULL,
 	last_name VARCHAR(300) NOT NULL,
-	email VARCHAR(300) UNIQUE NOT NULL,
+	username VARCHAR(300) UNIQUE NOT NULL,
 	password VARCHAR(1000) NOT NULL,
 	role_id INTEGER NOT NULL,
     is_enabled BOOLEAN NOT NULL,
