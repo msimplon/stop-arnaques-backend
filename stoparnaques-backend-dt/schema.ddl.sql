@@ -2,6 +2,8 @@ DROP TABLE IF EXISTS articles;
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS roles;
+DROP TABLE IF EXISTS forms;
+DROP TABLE IF EXISTS disputes;
 
 CREATE TABLE categories (  
 	id SERIAL PRIMARY KEY,
@@ -49,3 +51,21 @@ CREATE TABLE users (
 );
 
 
+CREATE TABLE disputes (    
+	id SERIAL PRIMARY KEY,
+	label VARCHAR(150) NOT NULL
+);
+
+
+CREATE TABLE forms (  
+	id SERIAL PRIMARY KEY,
+    subject VARCHAR(300) NOT NULL,
+    email VARCHAR(300) UNIQUE NOT NULL,
+    incidentNumber VARCHAR(300) NOT NULL,
+	description VARCHAR(255) NOT NULL,
+	details VARCHAR(255) NOT NULL,
+    dispute_id integer NOT NULL,
+    CONSTRAINT fk_dispute_id 
+	    FOREIGN KEY (dispute_id)
+	    REFERENCES disputes(id)
+	);

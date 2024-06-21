@@ -1,7 +1,8 @@
 DELETE FROM categories;
 DELETE FROM users;
 DELETE FROM roles;
-
+DELETE FROM forms;
+DELETE FROM disputes;
 
 INSERT INTO categories (name)
 VALUES ('Actualites'), ('Conseils');
@@ -16,5 +17,9 @@ INSERT INTO roles
 	VALUES
     ( 'Manal', 'Benallal', 'admin@admin.com', '$2y$10$v.8CVIY09L2BFyg1XXKwYOkXjZ6gn.6DsotJdZwjooesl0nVOaKGi', (SELECT r.id FROM roles r WHERE r.code_role = 'ROLE_ADMIN'), true);
 
-
-
+    INSERT INTO disputes (label)
+	VALUES 
+	('origine frauduleuse'),
+	('publicité mensongère'),
+	('fraude bancaire'),
+	('non-reception du colis');
