@@ -19,7 +19,4 @@ INSERT INTO roles
 
     INSERT INTO disputes (label)
 	VALUES 
-	('origine frauduleuse'),
-	('publicité mensongère'),
-	('fraude bancaire'),
-	('non-reception du colis');
+	('origine frauduleuse');
